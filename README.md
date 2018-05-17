@@ -70,7 +70,7 @@ chat.send({message: 'I am here now!'});
 ```
 
 ### Updating Your Schema
-You can update your schema programatically by using your object's appendToSchema method which takes two arguments, the
+You can update your schema programatically by using your object's appendToSchema() method which takes two arguments, the
 messageType and the callback to be executed when that messageType is received.
 ```javascript
 chat.appendToSchema('newMessageType', function(message){
