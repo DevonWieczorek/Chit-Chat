@@ -91,6 +91,7 @@ chat.send({error: 'uh oh...'}); // logs an error message in the receivers consol
 The 'append' messageType will trigger the appendToSchema() method on the receiving end. 
 The message data should contain an array with two values, a string with the new messageType, and the function 
 to be called (as a string).
+
 ** Note: If the messageType already exists in the receiver's schema, that callback will be overridden. (messageTypes are always
 converted to lower case internally).
 ```javascript
