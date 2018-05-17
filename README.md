@@ -51,3 +51,53 @@ var chat = new Chat(window.parent, '*', schema);
 ```javascript
 var chat = new Chat(window.parent, '*', {action: function(){ doAction(); }});
 ```
+
+### Sending Messages
+Once your instance of the Chat object has been created, you can use the send() function to pass a message to the other window.
+That window's schema will dictate how the message is handled.
+```javascript
+var chat = new Chat(window.parent, '*', schema);
+chat.send({message: 'I am here now!'});
+```
+
+### Updating Your Schema
+You can update your schema programatically by using your object's appendToSchema method which takes two arguments, the
+messageType and the callback to be executed when that messageType is received.
+```javascript
+chat.appendToSchema('newMessageType', function(message){
+    doSomethingWith(message[messageType]);
+});
+```
+
+### Native Message Types
+The Chat object comes with several 'native' messageTypes which will trigger different functionality.
+
+First, the three main console methods are included:
+```javascript
+chat.send({log: 'log me'}); // logs the message in the receivers console
+chat.send({warn: 'watch out!'}); // logs a warning message in the receivers console
+chat.send({error: 'uh oh...'}); // logs an error message in the receivers console
+```
+
+The 'append' messageType will trigger the appendToSchema() method on the receiving end. 
+The message data should contain an array with two values, a string with the new messageType, and the function 
+to be called (as a string).
+** Note: If the messageType already exists in the receiver's schema, that callback will be overridden. (messageTypes are always
+converted to lower case internally).
+```javascript
+var func = function(str){console.log(str);};
+chat.send({append: ['funcName', func.toString()]});
+```
+
+Once the receiver's schema is updated, it sends back a message with the updated schema as an array:
+```javascript
+chat.send({schema: schemaArray});
+```
+
+Our last native messageType is (you guessed it) 'schema', which logs the received schemaArray.
+```javascript
+// {schema: [
+    {messageType: 'messageType1', function: 'func1(arg){ doStuff(); }'},
+    {messageType: 'messageType2', function: 'func2(arg){ doOtherStuff(); }'}
+]}
+```
