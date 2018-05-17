@@ -32,3 +32,22 @@ var chat = new Chat(window.parent, '*', {
   }
 });
 ```
+### Designing Your Schema
+Message schemas should be a JSON object that contains single key-value pairs. They can be stored as a variable and then passed into
+your Chat object, or they can be passed directly as an argument. The message received is passed into the functions by default, so just
+pass in the message as an argument to access them.
+```javascript
+var schema = {
+    greeting: function(message){
+        chat.send({response: 'Oh, hey there!'});
+    },
+    response: function(message){
+        console.log('Message received: ' + message[messageType]);
+    }
+}
+
+var chat = new Chat(window.parent, '*', schema);
+```
+```javascript
+var chat = new Chat(window.parent, '*', {action: function(){ doAction(); }});
+```
