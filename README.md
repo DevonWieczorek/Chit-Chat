@@ -19,6 +19,7 @@ your function.
 Parent:
 ```javascript
 var frame = document.getElementById('frame').contentWindow;
+
 var chit = new Chat(frame, '*', {
   greeting: function(message){
       console.log('Message received: ' + message[messageType]);
