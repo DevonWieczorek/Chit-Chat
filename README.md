@@ -20,7 +20,7 @@ Parent:
 ```javascript
 var frame = document.getElementById('frame').contentWindow;
 
-var chit = new Chat(frame, '*', {
+var chat = new Chat(frame, '*', {
   greeting: function(message){
       console.log('Message received: ' + message[messageType]);
   }
@@ -38,7 +38,7 @@ var chat = new Chat(window.parent, '*', {
 Any subsequent messaging code on the parent end should be wrapped in the child's load event:
 ```javascript
 $('#frame').load(function(){
-    chit.send({greeting: 'Welcome to the party, pal!'});
+    chat.send({greeting: 'Welcome to the party, pal!'});
 });
 ```
 
