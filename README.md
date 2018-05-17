@@ -109,8 +109,14 @@ Our last native messageType is (you guessed it) 'schema', which logs the receive
 ```javascript
 /* 
 {schema: [
-    {messageType: 'messageType1', function: 'func1(arg){ doStuff(); }'},
-    {messageType: 'messageType2', function: 'func2(arg){ doOtherStuff(); }'}
+    {
+      messageType: 'messageType1', 
+      function: 'func1(arg){ doStuff(); }'
+    },
+    {
+      messageType: 'messageType2', 
+      function: 'func2(arg){ doOtherStuff(); }'
+    }
 ]}
 */
 ```
