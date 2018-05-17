@@ -2,8 +2,10 @@
 Javascript framework for sending and receiving postMessages
 
 @target - object, the targeted window/frame to post to
+
 @targetOrigin - string, a specified URL for the window you're communicating with
               - you can allow all "\*" or you can specify a domain to restrict access 
+              
 @schema - JSON object, series of messageTypes and callbacks to be executed after the message event
 
 ### Creating the Object
