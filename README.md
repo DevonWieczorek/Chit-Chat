@@ -34,6 +34,13 @@ var chat = new Chat(window.parent, '*', {
   }
 });
 ```
+Any subsequent messaging code on the parent end should be wrapped in the child's load event:
+```javascript
+$('#frame').load(function(){
+    chit.send({greeting: 'Welcome to the party, pal!'});
+});
+```
+
 ### Designing Your Schema
 Message schemas should be a JSON object that contains single key-value pairs. They can be stored as a variable and then passed into
 your Chat object, or they can be passed directly as an argument. The message received is passed into the functions by default, so just
@@ -98,8 +105,10 @@ chat.send({schema: schemaArray});
 
 Our last native messageType is (you guessed it) 'schema', which logs the received schemaArray.
 ```javascript
-// {schema: [
+/* 
+{schema: [
     {messageType: 'messageType1', function: 'func1(arg){ doStuff(); }'},
     {messageType: 'messageType2', function: 'func2(arg){ doOtherStuff(); }'}
 ]}
+*/
 ```
