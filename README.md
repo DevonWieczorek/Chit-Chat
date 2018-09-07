@@ -120,3 +120,7 @@ Our last native messageType is (you guessed it) 'schema', which logs the receive
 ]}
 */
 ```
+### RawGit Link
+```html
+<script type="text/javascript" src="https://cdn.rawgit.com/DevonWieczorek/Chit-Chat/master/chitChat.js"></script>
+```
