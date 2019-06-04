@@ -1,8 +1,30 @@
-// Simple framework for communicating between parent and children windows
-// Create your own message types and handlers, and build new handlers on the fly
-// @target - the targeted window/frame to post to
-// @targetOrigin - a specified URL for the window you're communicating with
-//               - you can allow all "*" or you can specify to restrict
+/*************************************************************************
+               _____ _     _ _      _____ _           _   
+              / ____| |   (_) |    / ____| |         | |  
+             | |    | |__  _| |_  | |    | |__   __ _| |_ 
+             | |    | '_ \| | __| | |    | '_ \ / _` | __|
+             | |____| | | | | |_  | |____| | | | (_| | |_ 
+              \_____|_| |_|_|\__|  \_____|_| |_|\__,_|\__|
+                                              
+*************************************************************************/ 
+
+/**
+* Simple framework for communicating between parent and children windows.
+*
+* Create your own message types and handlers, and build new handlers on the fly.
+*
+* @author  Devon Wieczorek
+* @version 1.0.0
+* @link    https://github.com/DevonWieczorek/Chit-Chat
+* @cdn     https://cdn.jsdelivr.net/gh/DevonWieczorek/Chit-Chat/chitChat.js
+**/
+
+/**
+* @param target {window} - Window or iFrame you are instantiating in
+* @param targetOrigin {string} - URL of the window you're communicating with
+* (you can allow all "*" or you can specify to restrict to specific URLs)
+* @param schema {JSON object} - series of messageTypes and callbacks to be executed after the message event
+**/
 
 function Chat(target, targetOrigin, schema){
     var chat = this;
