@@ -1,12 +1,11 @@
 # Chit-Chat
 Javascript framework for sending and receiving postMessages
 
-@target - object, the targeted window/frame to post to
+@param target {window} - Window or iFrame you are instantiating in
 
-@targetOrigin - string, a specified URL for the window you're communicating with 
-(you can allow all "\*" or you can specify a domain to restrict access)
-              
-@schema - JSON object, series of messageTypes and callbacks to be executed after the message event
+@param targetOrigin {string} - URL of the window you're communicating with (you can allow all "*" or you can specify to restrict to specific URLs)
+
+@param schema {JSON object} - series of messageTypes and callbacks to be executed after the message event
 
 ### Creating the Object
 Create a new instance of the Chat object in both the parent and the child window.
