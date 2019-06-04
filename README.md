@@ -121,5 +121,5 @@ Our last native messageType is (you guessed it) 'schema', which logs the receive
 ```
 ### CDN Link
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/DevonWieczorek/Chit-Chat/chitChat.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/DevonWieczorek/Chit-Chat/chitChat.min.js"></script>
 ```
