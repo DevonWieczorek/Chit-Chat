@@ -22,7 +22,7 @@ var frame = document.getElementById('frame').contentWindow;
 
 var chat = new Chat(frame, '*', {
   greeting: function(message){
-      console.log('Message received: ' + message[messageType]);
+      console.log('Message received: ' + message['greeting']);
   }
 });
 ```
@@ -52,7 +52,7 @@ var schema = {
         chat.send({response: 'Oh, hey there!'});
     },
     response: function(message){
-        console.log('Message received: ' + message[messageType]);
+        console.log('Message received: ' + message['response']);
     }
 }
 
@@ -75,7 +75,7 @@ You can update your schema programmatically by using your object's appendToSchem
 messageType and the callback to be executed when that messageType is received.
 ```javascript
 chat.appendToSchema('newMessageType', function(message){
-    doSomethingWith(message[messageType]);
+    doSomethingWith(message['newMessageType']);
 });
 ```
 
